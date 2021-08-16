@@ -1,0 +1,15 @@
+887b1798cd6fa257f623928a36e0f2c7 *DESCRIPTION
+1718f9bf25d86ac9fb9bcdb2c02c5f0a *NAMESPACE
+682f42e3d30c889437c9bee3f20f36f9 *R/biorxiv.R
+727793ff54c3389c6f8b7b3be70ecfac *R/file.R
+9fb3c60e7776d64ac559e28b031c96a4 *R/install_zip.R
+8242a382b49f6e3012697878edcacc1c *R/pkg-utils.R
+02ca60283d335bde5c34ee7392ed18dc *R/scihub-dl.R
+817e9b8e6e32347bf098dcb19efb077b *R/sudo-install.R
+fa080595b6346be8415b44ff63837060 *R/utilities.R
+730aec1afc9e457ccb1559ad484d5d44 *man/get_fun_from_pkg.Rd
+723d419f2b4a77ddce7248c77be06ab8 *man/install_zip.Rd
+6e51ea4eb59952299bc16b90cb2b238b *man/install_zip_gh.Rd
+4749306b8e1271fb9ce743051b433293 *man/is.installed.Rd
+db2f6e90178aa9ab21fcd3566055d6a7 *man/o.Rd
+120a503a334291e51a5c3d852ea44214 *man/scihub-dl.Rd
