@@ -37,6 +37,66 @@ get_fun_from_pkg <- function(pkg, fun) {
     ##
     ## require(pkg, character.only = TRUE)
     ## eval(parse(text = fun))
-
+    if (!is.installed(pkg)) {
+      stop(pkg, " is not installed, please install it before running this function")
+    }
+    
     utils::getFromNamespace(fun, pkg)
+}
+
+
+
+##' print md text of package with link to homepage (CRAN or Bioconductor)
+##'
+##'
+##' @rdname cran-bioc-pkg
+##' @param pkg package name
+##' @return md text string
+##' @export
+##' @author Guangchuang Yu
+CRANpkg <- function (pkg) {
+    cran <- "https://CRAN.R-project.org/package"
+    fmt <- "[%s](%s=%s)"
+    sprintf(fmt, pkgfmt(pkg), cran, pkg)
+}
+
+##' @rdname cran-bioc-pkg
+##' @export
+Biocpkg <- function (pkg) {
+    sprintf("[%s](http://bioconductor.org/packages/%s)", pkgfmt(pkg), pkg)
+}
+
+##' print md text of package with link to github repo
+##'
+##'
+##' @title Githubpkg
+##' @param user github user
+##' @param pkg package name
+##' @return md text string
+##' @export
+##' @author Guangchuang Yu
+Githubpkg <- function (user, pkg) {
+    gh <- "https://github.com"
+    fmt <- "[%s](%s/%s/%s)"
+    sprintf(fmt, pkgfmt(pkg), gh, user, pkg)
+}
+
+##' print md text of link to a pakcage
+##' 
+##'
+##' @title mypkg
+##' @param pkg package name
+##' @param url package url
+##' @return md text string
+##' @export
+##' @author Guangchuang Yu
+mypkg <- function(pkg, url) {
+    fmt <- "[%s](%s)"
+    sprintf(fmt, pkgfmt(pkg), url)
+}
+
+
+pkgfmt <- function(pkg) {
+  fmt <- getOption('yulab.utils_pkgfmt', default="%s")
+  sprintf(fmt, pkg)
 }
