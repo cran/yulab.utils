@@ -1,3 +1,8 @@
+# yulab.utils 0.0.6
+
++ `mat2df()` to convert matrix to a tidy data frame (2022-12-20, Tue)
++ `str_starts()` and `str_ends()` (2022-07-29, Fri)
+
 # yulab.utils 0.0.5
 
 + `get_fun_from_pkg()` outputs friendly message if the pkg is not installed (2022-06-08, Wed)
