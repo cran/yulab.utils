@@ -1,3 +1,11 @@
+# yulab.utils 0.0.7
+
++ update `check_pkg()` to call `rlang::check_installed()` with reason set automatically (2023-08-03, Thu)
++ `yread()` and `yread_tsv()` that read file with caching (2023-08-02, Wed) 
++ `rbindlist()` to rbind a list (2023-08-01, Tue)
++ `exec()` to run system command (2023-06-19, Mon)
++ `scale_range()` to normalize data by range (2023-06-18, Sun)
+
 # yulab.utils 0.0.6
 
 + `mat2df()` to convert matrix to a tidy data frame (2022-12-20, Tue)

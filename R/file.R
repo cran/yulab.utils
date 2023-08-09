@@ -1,3 +1,71 @@
+#' @rdname yread
+#' @export
+yread_tsv <- function(file, reader = utils::read.delim, 
+                params = list(sep="\t", header = FALSE),
+                cache_dir = tempdir()
+            ) {
+    
+    yread(file, 
+        reader = reader, 
+        params=params,
+        cache_dir = cache_dir
+    )
+}
+
+
+
+#' read file with caching
+#' 
+#' This function read a file (local or url) and cache the content.
+#' @title yread
+#' @rdname yread
+#' @param file a file or url
+#' @param reader a function to read the 'file_url'
+#' @param params a list of parameters that passed to the 'reader'
+#' @param cache_dir a folder to store cache files
+#' @return the output of using the 'reader' to read the 'file_url' with parameters specified by the 'params'
+#' @author Yonghe Xia and Guangchuang Yu 
+#' @export
+yread <- function(file, reader = readLines, params = list(), 
+                    cache_dir = tempdir()) {
+
+    # Generate a unique cache filename based on the file URL
+    cache_filename <- fs::path_join(c(cache_dir, paste0(digest::digest(file), ".rds")))
+    
+    # Check if the cached file exists
+    if (file.exists(cache_filename)) {
+        # If cached file exists, load and return the cached data
+        cached_data <- readRDS(cache_filename)
+        return(cached_data)
+    } else {
+        # If cached file does not exist, read and cache the data
+        data <- do.call(reader, args = c(file, params))
+        saveRDS(data, cache_filename)
+        return(data)
+    }
+}
+
+##' read clipboard
+##'
+##'
+##' @title read.cb
+##' @param reader function to read the clipboard
+##' @param ... parameters for the reader
+##' @return clipboard content, output type depends on the output of the reader
+##' @author Guangchuang Yu
+##' @importFrom utils read.table
+##' @export
+read.cb <- function(reader = read.table, ...) {
+    os <- Sys.info()[1]
+    if (os == "Darwin") {
+        clip <- pipe("pbpaste")
+    } else {
+        clip <- "clipboard"
+    }
+    reader(clip, ...)
+}
+
+
 ##' open selected directory or file
 ##'
 ##'
