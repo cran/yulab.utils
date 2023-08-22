@@ -1,11 +1,12 @@
-8c1c4906a625ba330029604a896ac6bd *DESCRIPTION
-55213f0d48f4eeb3cd1fc5584e29e4c1 *NAMESPACE
-fd3b9d0a7b7c3e9122db2d9cd384080c *NEWS.md
+90551f24c0d54f0d67695351af9b7fce *DESCRIPTION
+2d247678b84aa9d0741b4a1039f0c334 *NAMESPACE
+7f3481005bb5f94f63fea21a6d556e66 *NEWS.md
 8c817a90acb8deb76024a36d5662c824 *R/biorxiv.R
+95effca842167b8d4ab1d11056e3e84e *R/combinations.R
 46832915177d0b9752c76949234b3d1c *R/exec.R
-dd6a67bfa6133c4d2b860468589af8d2 *R/file.R
+605066d5b8cbb724f0020a4c50e58b63 *R/file.R
 122709225f43d3658845abe022b0a213 *R/install_zip.R
-d90e0e82425aaccc73c63e0bd619bc23 *R/mat2df.R
+c9d9db73e55f3aadfa2a3cde09cd51c6 *R/mat2df.R
 8b354fcbceb9ca32f670ba6147c572aa *R/pkg-utils.R
 0423c9fafa2aa973febeceaf28e8f32e *R/rbindlist.r
 0db1a99ecdc6501760d342d82da783a8 *R/scale.R
@@ -16,6 +17,7 @@ a33656388df140e42f096042e4d94c4f *R/sudo-install.R
 29f8e566257c62b9f5c59adcfdc18597 *R/zzz.R
 836b8f33f59d0ef6773acb6d807a48d1 *man/Githubpkg.Rd
 438fff93f806ab18e9db99060cbabb1b *man/check_pkg.Rd
+740f5276df44ad1e6766f7a37fe1d21a *man/combinations.Rd
 db93bb4ab3c70d03ce07c3a35f237cdd *man/cran-bioc-pkg.Rd
 42a044445a567e63fbe9f8d7b4d5d399 *man/exec.Rd
 feeda9894ca366d3cecd321a26b1c757 *man/get_fun_from_pkg.Rd
@@ -23,6 +25,7 @@ dfbc4e67550a8ff93dd167f828333c0a *man/install_zip.Rd
 db4537fe5529706c82407047e434a11f *man/install_zip_gh.Rd
 f1fb5a178766a681c0ee36d3ee16f50f *man/is.installed.Rd
 97963da5923bc5b9fda6709cd3cb6ed7 *man/mat2df.Rd
+9d93b105d73826094ec0c5d6ef467b21 *man/mat2list.Rd
 5de5c1a676be17dc7fbe1de44a430b38 *man/mypkg.Rd
 3f249c9dc9f96b0faf626f6408aa4b94 *man/o.Rd
 dd518e45f0150d8346c9129ab6f99772 *man/rbindlist.Rd
@@ -32,4 +35,4 @@ e4439fe352c1817015d3bc28bd4f5abf *man/scale_range.Rd
 376e2961dcdfc973c2449512a05eb2a3 *man/show_in_excel.Rd
 6edd94b2ffa52104ecf7c9422f5b58cc *man/str-starts-ends.Rd
 2e11009bde284802dffb9878ea9bfb58 *man/str_wrap.Rd
-c9847e0bb775576a909b58351949399d *man/yread.Rd
+e72d8c8b7cef389d2f3235e994bc48f0 *man/yread.Rd
