@@ -1,3 +1,10 @@
+# yulab.utils 0.1.0
+
++ `install_zip()` allows both binary and source zip files (2023-09-20, Wed)
++ `pload()` for loading package with the ability to install it if not available (2023-09-16, Sat)
++ `get_dependencies()` and `packageTitle()` (2023-09-11, Mon)
++ import 'fs' and 'digest' (2023-09-07, Thu)
+
 # yulab.utils 0.0.9
 
 + `ls2df()` convert list of vector to a data.frame (2023-09-01, Fri)

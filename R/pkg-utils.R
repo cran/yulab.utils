@@ -1,3 +1,126 @@
+##' loading a package
+##'
+##' The function use 'library()' to load the package. 
+##' If the package is not installed, the function will try to install it before loading it.
+##' @title pload
+##' @param package package name
+##' @param action function used to install package. 
+##' If 'action = "auto"', it will try to use 'BiocManager::install()' if it is available.
+##' @return the selected package loaded to the R session
+##' @importFrom rlang as_name
+##' @importFrom rlang enquo
+##' @importFrom rlang check_installed
+##' @importFrom cli cli_h2
+##' @importFrom utils getFromNamespace
+##' @export
+##' @author Guangchuang Yu
+pload <- function(package, action = "auto") {
+    pkg <- as_name(enquo(package))
+    if (action == "auto") {
+        if (is.installed("BiocManager")) {
+            install <- getFromNamespace("install", "BiocManager")
+            action <- function(package, ask=FALSE, update=FALSE, ...){
+                install(package, ask=ask, update = update, ...)
+            }
+        } else {
+            action <- NULL
+        }
+    }
+    check_installed(pkg, action = action)
+    cli::cli_h2(sprintf("loading the package: %s", pkg))
+    library(pkg, character.only = TRUE)
+}
+
+
+##' get reverse dependencies
+##'
+##'
+##' @title get_dependencies
+##' @param pkg package name
+##' @param repo 'CRAN' and/or 'BioC'
+##' @return reverse dependencies
+## @importFrom BiocInstaller biocinstallRepos
+##' @importFrom tools package_dependencies
+##' @export
+##' @author Guangchuang Yu
+get_dependencies <- function(pkg, repo=c("CRAN", "BioC")) {
+  rp <- get_repo(repo)
+
+  db <- utils::available.packages(repo=rp)
+
+  tools::package_dependencies(pkg, db=db, reverse=TRUE)
+}
+
+get_repo <- function(repo = c("CRAN", "BioC")) {
+    rp <- c()
+    if ('CRAN' %in% repo) {
+        cran <- getOption("repos")["CRAN"]
+        if (is.null(cran)) {
+            cran <- "http://cloud.r-project.org/"
+        }
+        rp <- c(rp, cran)
+    }
+    if ('BioC' %in% repo) {
+        bioc <- getOption("BioC_mirror")
+        if (is.null(bioc)) {
+            bioc <- "https://mirrors.tuna.tsinghua.edu.cn/bioconductor/"
+        }
+        rp <- c(rp, bioc)
+    }
+    ## options(repos = biocinstallRepos())
+
+    sub("/$", "", rp)
+}
+
+##' Extract package title
+##'
+##'
+##' @title packageTitle
+##' @param pkg package name
+##' @param repo 'CRAN' and/or 'BioC'
+##' @return reverse dependencies
+##' @importFrom utils packageDescription
+##' @export
+##' @author Guangchuang Yu
+packageTitle <- function(pkg, repo='CRAN') {
+    title <- tryCatch(packageDescription(pkg)$Title, error=function(e) NULL)
+
+    if (is.null(title)) {
+      repo_url <- get_repo(repo)
+      if (repo == "CRAN") {
+        url <- sprintf("%s/package=%s", repo_url, pkg)
+      } else {
+        bioc_type <- c("bioc", "workflows", "data/annotation", "data/experiment")
+        url <- sprintf("%s/packages/release/%s/html/%s.html", repo_url, bioc_type, pkg)
+      }
+
+      ## x <- tryCatch(readLines(url), error = function(e) NULL)
+      ## if (is.null(x)) return("")
+      for (u in url) {      
+        x <- tryCatch(yread(u), error = function(e) NULL)
+        if (!is.null(x)) {
+          break()
+        }
+      }
+
+      if (is.null(x)) {
+        return(NA)
+      }
+
+      i <- grep('^\\s*<h2>', x)
+      if (grepl("</h2>$", x[i])) {
+          xx <- x[i]
+      } else {
+          j <- grep('</h2>$', x)
+          xx <- paste(x[i:j], collapse=" ")
+      }
+
+      title <- gsub('</h2>$', '', gsub('\\s*<h2>', '', xx))
+    }
+    sub("^\\w+\\s*:\\s*", "", gsub("\n", " ", title))
+}
+
+
 ##' Check whether the input packages are installed
 ##'
 ##' This function check whether the input packages are installed
