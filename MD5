@@ -1,7 +1,6 @@
-cd42927fe659a273524c819376d17840 *DESCRIPTION
-a5fd9e63439b01ead6e017a6a2c5441d *NAMESPACE
-9c3cd78cff9ffb876962cbe34e489ff6 *NEWS.md
-b3e2c98a9013e6596ae6d0466b16925e *R/baidu-translate.R
+d96ca498439bdc0aa284c8341a93e67b *DESCRIPTION
+a04e607d6640de5cb3580c9c647464a3 *NAMESPACE
+129ecb9336fa44d4d79db4ac5a7b628b *NEWS.md
 8c817a90acb8deb76024a36d5662c824 *R/biorxiv.R
 95effca842167b8d4ab1d11056e3e84e *R/combinations.R
 46832915177d0b9752c76949234b3d1c *R/exec.R
@@ -10,13 +9,13 @@ dfe0b5ad13f1159c83c2aaf1b9e6cf6d *R/install_zip.R
 29332963a97b933d165880d14b5a926f *R/list.R
 c9d9db73e55f3aadfa2a3cde09cd51c6 *R/matrix-utils.R
 6af90ab737708233d6c8482130740b20 *R/pkg-utils.R
+3df8fa9cdfda330d886174be882bc35f *R/regexpr.R
 0db1a99ecdc6501760d342d82da783a8 *R/scale.R
 8b2467b550b0debf2161c3ffa984f73c *R/scihub-dl.R
 b45a053547ba31ff3bbab77959a8307a *R/str-utils.R
 a33656388df140e42f096042e4d94c4f *R/sudo-install.R
 6a94734c56273189e5861de9a7760e3c *R/utilities.R
-ba3da67bf5940fcba51b27095c4a8d41 *R/zzz.R
-cf8d3053eabc9dc9105d970a6a56a260 *man/baidu-translate.Rd
+18c7df3c255d29c3bb86ca3092893504 *R/zzz.R
 438fff93f806ab18e9db99060cbabb1b *man/check_pkg.Rd
 740f5276df44ad1e6766f7a37fe1d21a *man/combinations.Rd
 db93bb4ab3c70d03ce07c3a35f237cdd *man/cran-bioc-pkg.Rd
@@ -36,6 +35,7 @@ e101a49107b31f0d3bedef24de40e2a5 *man/packageTitle.Rd
 8317241089ca88b826c9fab73d536d8e *man/pload.Rd
 340d383c001465de8a3773b6cd1db10b *man/rbindlist.Rd
 0e20524bfebe8e2ef91eea11dbb62ccb *man/read.cb.Rd
+94015f38ecbf2eeb9f295345d938b702 *man/regexpr-style.Rd
 e4439fe352c1817015d3bc28bd4f5abf *man/scale_range.Rd
 7ca4626445edad5c55b084c9a360cff2 *man/scihub-dl.Rd
 376e2961dcdfc973c2449512a05eb2a3 *man/show_in_excel.Rd
