@@ -1,6 +1,6 @@
-bd8d5dd6cc2d5a837d9089bea4a638e5 *DESCRIPTION
-604a31533959b0546a51dfaf66e63467 *NAMESPACE
-4f12f87594461a2eaf427bf1f11a81b6 *NEWS.md
+e1d3e3ffc9ff7206a6c7dec198e3ad42 *DESCRIPTION
+7dc6be581094bf13b1624c2c92b54641 *NAMESPACE
+f05a974e987d7ae6d76199557e7b24e8 *NEWS.md
 8c817a90acb8deb76024a36d5662c824 *R/biorxiv.R
 09a18d0b822d2e29ca10ba3e76fb7485 *R/cache.R
 95effca842167b8d4ab1d11056e3e84e *R/combinations.R
@@ -13,7 +13,7 @@ c9d9db73e55f3aadfa2a3cde09cd51c6 *R/matrix-utils.R
 3df8fa9cdfda330d886174be882bc35f *R/regexpr.R
 0db1a99ecdc6501760d342d82da783a8 *R/scale.R
 8b2467b550b0debf2161c3ffa984f73c *R/scihub-dl.R
-b45a053547ba31ff3bbab77959a8307a *R/str-utils.R
+3c9db1180c151013ad9fdaf4d5bddc11 *R/str-utils.R
 a33656388df140e42f096042e4d94c4f *R/sudo-install.R
 6a94734c56273189e5861de9a7760e3c *R/utilities.R
 18c7df3c255d29c3bb86ca3092893504 *R/zzz.R
@@ -40,6 +40,7 @@ e101a49107b31f0d3bedef24de40e2a5 *man/packageTitle.Rd
 e4439fe352c1817015d3bc28bd4f5abf *man/scale_range.Rd
 7ca4626445edad5c55b084c9a360cff2 *man/scihub-dl.Rd
 376e2961dcdfc973c2449512a05eb2a3 *man/show_in_excel.Rd
+0ee359877a2bc4bd14136104fd61d24f *man/str-extract.Rd
 be70aa2c7a2cc288386c27b41a1d122a *man/str-starts-ends.Rd
 a348ee3c2d8e551de7451333bc097036 *man/str_wrap.Rd
 e72d8c8b7cef389d2f3235e994bc48f0 *man/yread.Rd

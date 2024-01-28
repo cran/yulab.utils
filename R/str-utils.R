@@ -8,6 +8,10 @@
 ##' @export
 ##' @author Guangchuang Yu and Erqiang Hu
 str_wrap <- function(string, width = getOption("width")) {
+    ##
+    ## actually, there is a base::strwrap() function available
+    ##
+    
     # x <- gregexpr(' ', string)
     # vapply(seq_along(x),
     #        FUN = function(i) {
@@ -89,3 +93,22 @@ str_detect <- function(string, pattern, negate) {
     if (negate) res <- !res
     return(res)            
 }
+
+##' Extract a substring using a pattern
+##' 
+##' 
+##' @title str_extract
+##' @rdname str-extract
+##' @param string input string
+##' @param pattern a regular expression to describe the pattern to extracted from the 'string'
+##' @return substring
+##' @export
+##' @author Guangchuang Yu
+str_extract <- function(string, pattern) {
+    i <- regexpr(pattern, string)
+    j <- attr(i, 'match.length')
+    res <- substring(string, i, i+j-1)
+    res[res == ""] <- NA
+    return(res)
+}
+
