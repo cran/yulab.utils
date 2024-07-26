@@ -1,6 +1,6 @@
-e1d3e3ffc9ff7206a6c7dec198e3ad42 *DESCRIPTION
-7dc6be581094bf13b1624c2c92b54641 *NAMESPACE
-f05a974e987d7ae6d76199557e7b24e8 *NEWS.md
+16374493d792a0634a10814518a28341 *DESCRIPTION
+34644b5e7261252ff5e0e5432f955e68 *NAMESPACE
+11095f4524e9adfdfb52bea0179e1e40 *NEWS.md
 8c817a90acb8deb76024a36d5662c824 *R/biorxiv.R
 09a18d0b822d2e29ca10ba3e76fb7485 *R/cache.R
 95effca842167b8d4ab1d11056e3e84e *R/combinations.R
@@ -16,6 +16,8 @@ c9d9db73e55f3aadfa2a3cde09cd51c6 *R/matrix-utils.R
 3c9db1180c151013ad9fdaf4d5bddc11 *R/str-utils.R
 a33656388df140e42f096042e4d94c4f *R/sudo-install.R
 6a94734c56273189e5861de9a7760e3c *R/utilities.R
+83e6005234fdb404b164e17f556bdb2e *R/yulab-msg.R
+da7bac5323d313dfbcdb38f8fbf613f0 *R/yulab-utils-package.R
 18c7df3c255d29c3bb86ca3092893504 *R/zzz.R
 438fff93f806ab18e9db99060cbabb1b *man/check_pkg.Rd
 740f5276df44ad1e6766f7a37fe1d21a *man/combinations.Rd
@@ -45,3 +47,5 @@ be70aa2c7a2cc288386c27b41a1d122a *man/str-starts-ends.Rd
 a348ee3c2d8e551de7451333bc097036 *man/str_wrap.Rd
 e72d8c8b7cef389d2f3235e994bc48f0 *man/yread.Rd
 0c88c99a76427c4980cf90320e9c3057 *man/yulab-cache.Rd
+739a48fa47e7174fe3817c85d6018a20 *man/yulab.utils-package.Rd
+376b3e7335587d2531cd9360557fcc9d *man/yulab_msg.Rd
