@@ -1,3 +1,9 @@
+# yulab.utils 0.1.6
+
++ update `bib_ggtree()` and `bib_knowledge()` with all previous related publications (2024-08-12, Mon)
++ remove memory caching and disable file cache by default in `yread()` and `yread_tsv()` (2024-07-27, Sat)
++ `bib_ggtree()` and `bib_knowledge()` (2024-07-27, Sat)
+
 # yulab.utils 0.1.5
 
 + `yulab_msg()` for startup message of packages developed by YuLab (2024-07-26, Fri)
