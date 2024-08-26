@@ -65,7 +65,7 @@ yread <- function(file, reader = readLines, params = list(),
 ##' @importFrom utils read.table
 ##' @export
 read.cb <- function(reader = read.table, ...) {
-    os <- Sys.info()[1]
+    os <- which_os()
     if (os == "Darwin") {
         clip <- pipe("pbpaste")
     } else {
@@ -90,7 +90,7 @@ read.cb <- function(reader = read.table, ...) {
 ##' @author Guangchuang Yu
 o <- function(file=".") {
     file <- normalizePath(file)
-    os <- Sys.info()[1]
+    os <- which_os()
     if (is.rserver()) {
         if (dir.exists(file)) {
             stop("open directory in RStudio Server is not supported.")
@@ -99,7 +99,7 @@ o <- function(file=".") {
         if (!is.null(rserver_ip)) {
             rserver_port <- getOption("rserver_port") %||% '8787' 
             if (!startsWith(rserver_ip, "http")) {
-                rserver_ip = paste0("http://", rserver_ip)
+                rserver_ip <- paste0("http://", rserver_ip)
             }
             utils::browseURL(
                        paste0(
@@ -128,7 +128,7 @@ o <- function(file=".") {
 
 
 is.rserver <- function(){
-    RStudio.Version = tryCatch(get("RStudio.Version"), error = function(e) NULL)
+    RStudio.Version <- tryCatch(get("RStudio.Version"), error = function(e) NULL)
     if(is.null(RStudio.Version)) return(FALSE)
     if(!is.function(RStudio.Version)) return(FALSE)
     RStudio.Version()$mode == 'server'

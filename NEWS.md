@@ -1,5 +1,16 @@
+# yulab.utils 0.1.7
+
++ `has_internet()` for testing internet connection (2024-08-26, Mon)
++ `pkg_ref()` to access textVersion of package reference (2024-08-21, Wed)
++ export `str_detect()` (20024-08-19, Mon)
++ `user_dir()` to setup user data dir (20024-08-17, Sat)
++ `which_os()` to return the system name
++ `has_bin()` to check whether a command is exist in the system 
+
 # yulab.utils 0.1.6
 
++ `mydownload()` for downloading online file (2024-08-17, Sat)
+    - internally use 'httr2' and is 'https' friendly
 + update `bib_ggtree()` and `bib_knowledge()` with all previous related publications (2024-08-12, Mon)
 + remove memory caching and disable file cache by default in `yread()` and `yread_tsv()` (2024-07-27, Sat)
 + `bib_ggtree()` and `bib_knowledge()` (2024-07-27, Sat)
