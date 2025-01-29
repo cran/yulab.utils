@@ -1,6 +1,6 @@
-d1ffea9c4f88c3371d765170860b7cc1 *DESCRIPTION
+bdbc33686bbff396223a63f41200cd00 *DESCRIPTION
 be784f9d486c3b3f632918b731441edd *NAMESPACE
-78eaef2fa0f092052487fcd59f3c6894 *NEWS.md
+ebafcb7aa06a2ae6e92e851ac2794f9e *NEWS.md
 007e3de7a11b71539e2d8617ebc295c5 *R/bib-ggtree.R
 53a06eaae05f939981d43ffbe9b636c8 *R/bib-knownledge.R
 8c817a90acb8deb76024a36d5662c824 *R/biorxiv.R
@@ -19,7 +19,7 @@ bc5a9393353846510cf4f532137aa7d0 *R/pkg-utils.R
 8b2467b550b0debf2161c3ffa984f73c *R/scihub-dl.R
 5b32966c3e9170d5ab3207e9ea07211a *R/str-utils.R
 a33656388df140e42f096042e4d94c4f *R/sudo-install.R
-0bdd8c3f00c9c2075e086d9ab099bfee *R/utilities.R
+ee2efad4700779e729634304bc862ee5 *R/utilities.R
 2bcf5d590c3a9828af87f6ebcf4113a6 *R/yulab-msg.R
 da7bac5323d313dfbcdb38f8fbf613f0 *R/yulab-utils-package.R
 81128a8e2c6dac0484310aefb614e6c3 *R/zzz.R

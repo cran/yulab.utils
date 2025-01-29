@@ -14,8 +14,9 @@
 } 
 
 get_caller_package <- function(caller) {
-    if (is.character) {
-        fn <- eval(parse(text=caller))
+    if (is.character(caller)) {
+        fn <- tryCatch(eval(parse(text=caller)), error=function(e) NULL)
+        if (is.null(fn)) return("")
     } else {
         fn <- caller
     }
