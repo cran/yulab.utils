@@ -1,7 +1,7 @@
-bdbc33686bbff396223a63f41200cd00 *DESCRIPTION
-be784f9d486c3b3f632918b731441edd *NAMESPACE
-ebafcb7aa06a2ae6e92e851ac2794f9e *NEWS.md
-007e3de7a11b71539e2d8617ebc295c5 *R/bib-ggtree.R
+2e246a89bc89aeed17be7438ead77658 *DESCRIPTION
+60909365a2704c38588471d9c0be9a2e *NAMESPACE
+3e9d54d353e8027d13a7d0ac77483217 *NEWS.md
+dea503b7e07e699c2bd4ba8d5d00bc1c *R/bib-ggtree.R
 53a06eaae05f939981d43ffbe9b636c8 *R/bib-knownledge.R
 8c817a90acb8deb76024a36d5662c824 *R/biorxiv.R
 09a18d0b822d2e29ca10ba3e76fb7485 *R/cache.R
@@ -12,14 +12,14 @@ ebafcb7aa06a2ae6e92e851ac2794f9e *NEWS.md
 a88f332cc523f835302372eb330808c1 *R/install_zip.R
 29332963a97b933d165880d14b5a926f *R/list.R
 c9d9db73e55f3aadfa2a3cde09cd51c6 *R/matrix-utils.R
-e703f7689d1b0a0d7ea2dcaed9fa1038 *R/os.R
+e23b0614b49320a4c038e0a5521b71dd *R/os.R
 bc5a9393353846510cf4f532137aa7d0 *R/pkg-utils.R
 522473cababc10ee439a582555d821cb *R/regexpr.R
 0db1a99ecdc6501760d342d82da783a8 *R/scale.R
 8b2467b550b0debf2161c3ffa984f73c *R/scihub-dl.R
 5b32966c3e9170d5ab3207e9ea07211a *R/str-utils.R
 a33656388df140e42f096042e4d94c4f *R/sudo-install.R
-ee2efad4700779e729634304bc862ee5 *R/utilities.R
+94d330efbcfb081071f68164f53f1393 *R/utilities.R
 2bcf5d590c3a9828af87f6ebcf4113a6 *R/yulab-msg.R
 da7bac5323d313dfbcdb38f8fbf613f0 *R/yulab-utils-package.R
 81128a8e2c6dac0484310aefb614e6c3 *R/zzz.R
@@ -54,6 +54,7 @@ ea0c0f3acb8187602161ff2a7bc5d1ac *man/str-detect.Rd
 0ee359877a2bc4bd14136104fd61d24f *man/str-extract.Rd
 be70aa2c7a2cc288386c27b41a1d122a *man/str-starts-ends.Rd
 3aade7406ca5eaadbc07b0c5679b063b *man/str_wrap.Rd
+a1d515de29f3883e71403a5241db629b *man/user_dir.Rd
 4ced4ba5fc9eca943c92574732a1b205 *man/yread.Rd
 0c88c99a76427c4980cf90320e9c3057 *man/yulab-cache.Rd
 eedc7b6680597a4df3d869fe84f9ca5c *man/yulab.utils-package.Rd
