@@ -23,3 +23,11 @@ Invisible TRUE if valid, throws error otherwise
 \description{
 Validates that a numeric value falls within the specified range
 }
+\seealso{
+Other validate-utils: 
+\code{\link{check_directory}()},
+\code{\link{check_file}()},
+\code{\link{check_input}()},
+\code{\link{check_packages}()}
+}
+\concept{validate-utils}

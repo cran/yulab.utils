@@ -1,11 +1,10 @@
-#' loading a package
+#' Load a package
 #'
-#' The function use 'library()' to load the package. 
-#' If the package is not installed, the function will try to install it before loading it.
+#' Uses `library()` to load `package`. If not installed, attempts installation
+#' via `rlang::check_installed()` (optionally using `BiocManager::install()`).
 #' @title pload
 #' @param package package name
-#' @param action function used to install package. 
-#' If 'action = "auto"', it will try to use 'BiocManager::install()' if it is available.
+#' @param action Installation function; `"auto"` tries `BiocManager::install()` if available
 #' @return the selected package loaded to the R session
 #' @importFrom rlang as_name
 #' @importFrom rlang enquo
@@ -14,6 +13,7 @@
 #' @importFrom utils getFromNamespace
 #' @export
 #' @author Guangchuang Yu
+#' @family pkg-utils
 pload <- function(package, action = "auto") {
     pkg <- as_name(enquo(package))
     if (action == "auto") {
@@ -33,7 +33,7 @@ pload <- function(package, action = "auto") {
 }
 
 
-#' get reverse dependencies
+#' Get reverse dependencies
 #'
 #'
 #' @title get_dependencies
@@ -44,6 +44,7 @@ pload <- function(package, action = "auto") {
 #' @importFrom tools package_dependencies
 #' @export
 #' @author Guangchuang Yu
+#' @family pkg-utils
 get_dependencies <- function(pkg, repo=c("CRAN", "BioC")) {
   rp <- get_repo(repo)
 
@@ -83,6 +84,7 @@ get_repo <- function(repo = c("CRAN", "BioC")) {
 #' @importFrom utils packageDescription
 #' @export
 #' @author Guangchuang Yu
+#' @family pkg-utils
 packageTitle <- function(pkg, repo='CRAN') {
     title <- tryCatch(packageDescription(pkg)$Title, error=function(e) NULL)
 
@@ -95,10 +97,16 @@ packageTitle <- function(pkg, repo='CRAN') {
         url <- sprintf("%s/packages/release/%s/html/%s.html", repo_url, bioc_type, pkg)
       }
 
-      ## x <- tryCatch(readLines(url), error = function(e) NULL)
-      ## if (is.null(x)) return("")
-      for (u in url) {      
-        x <- tryCatch(yread(u), error = function(e) NULL)
+      for (u in url) {
+        x <- tryCatch({
+          if (is.installed("httr2")) {
+            req <- httr2::request(u) |> httr2::req_timeout(5)
+            resp <- httr2::req_perform(req)
+            httr2::resp_body_string(resp)
+          } else {
+            yread(u)
+          }
+        }, error = function(e) NULL)
         if (!is.null(x)) {
           break()
         }
@@ -108,23 +116,26 @@ packageTitle <- function(pkg, repo='CRAN') {
         return(NA)
       }
 
-      i <- grep('^\\s*<h2>', x)
-      if (grepl("</h2>$", x[i])) {
-          xx <- x[i]
+      if (length(grep("<h2", x)) == 0) {
+        # fallback: try <title>
+        tt <- sub(".*<title>\\s*(.*?)\\s*</title>.*", "\\1", paste(x, collapse = " "))
+        title <- tt
       } else {
-          j <- grep('</h2>$', x)
-          xx <- paste(x[i:j], collapse=" ")
+        i <- grep('^\\s*<h2>', x)
+        if (grepl("</h2>$", x[i])) {
+            xx <- x[i]
+        } else {
+            j <- grep('</h2>$', x)
+            xx <- paste(x[i:j], collapse=" ")
+        }
+        title <- gsub('</h2>$', '', gsub('\\s*<h2>', '', xx))
       }
-
-      title <- gsub('</h2>$', '', gsub('\\s*<h2>', '', xx))
     }
     sub("^\\w+\\s*:\\s*", "", gsub("\n", " ", title))
 }
 
 
-#' Check whether the input packages are installed
-#'
-#' This function check whether the input packages are installed
+#' Check whether packages are installed
 #' @title is.installed
 #' @param packages package names
 #' @return logical vector
@@ -132,37 +143,13 @@ packageTitle <- function(pkg, repo='CRAN') {
 #' @examples
 #' is.installed(c("dplyr", "ggplot2"))
 #' @author Guangchuang Yu
+#' @family pkg-utils
 is.installed <- function(packages) {
   vapply(packages, function(package) {
     system.file(package=package) != ""
   }, logical(1))
 }
 
-#' Check whether the input packages are installed
-#'
-#' This function check whether the input packages are installed. If not, it asks the user whether to install the missing packages. 
-#' @title check_pkg
-#' @param pkg package names
-#' @param reason the reason to check the pkg. If NULL, it will set the reason to the parent call.
-#' @param ... additional parameters that passed to `rlang::check_installed()`
-#' @return see also [check_installed][rlang::check_installed]
-#' @export
-#' @importFrom rlang check_installed
-#' @author Guangchuang Yu
-check_pkg <- function(pkg, reason=NULL, ...) {
-  # v1
-  #
-  # if (!is.installed(pkg)) {
-  #    msg <- sprintf("%s is required, please install it first", pkg)
-  #    stop(msg)
-  # }
-
-  if (is.null(reason)) {
-    call <- sys.call(1L)
-    reason <- sprintf("for %s()", as.character(call)[1])
-  }
-  rlang::check_installed(pkg, reason, ...)
-}
 
 
 #' load function from package
@@ -176,6 +163,7 @@ check_pkg <- function(pkg, reason=NULL, ...) {
 #' @examples
 #' get_fun_from_pkg('utils', 'zip')
 #' @author Guangchuang Yu
+#' @family pkg-utils
 get_fun_from_pkg <- function(pkg, fun) {
     ## v1
     ##
@@ -193,7 +181,7 @@ get_fun_from_pkg <- function(pkg, fun) {
 
 
 
-#' print md text of package with link to homepage (CRAN or Bioconductor)
+#' Markdown link to CRAN/Bioconductor
 #'
 #'
 #' @rdname cran-bioc-pkg
@@ -201,6 +189,7 @@ get_fun_from_pkg <- function(pkg, fun) {
 #' @return md text string
 #' @export
 #' @author Guangchuang Yu
+#' @family pkg-utils
 CRANpkg <- function(pkg) {
     cran <- "https://CRAN.R-project.org/package"
     fmt <- "[%s](%s=%s)"
@@ -213,7 +202,7 @@ Biocpkg <- function(pkg) {
     sprintf("[%s](http://bioconductor.org/packages/%s)", pkgfmt(pkg), pkg)
 }
 
-#' print md text of package with link to github repo
+#' Markdown link to GitHub
 #'
 #'
 #' @rdname github-pkg
@@ -222,13 +211,14 @@ Biocpkg <- function(pkg) {
 #' @return md text string
 #' @export
 #' @author Guangchuang Yu
+#' @family pkg-utils
 Githubpkg <- function(user, pkg) {
     gh <- "https://github.com"
     fmt <- "[%s](%s/%s/%s)"
     sprintf(fmt, pkgfmt(pkg), gh, user, pkg)
 }
 
-#' print md text of link to a pakcage
+#' Markdown link to a package
 #' 
 #'
 #' @title mypkg
@@ -237,6 +227,7 @@ Githubpkg <- function(user, pkg) {
 #' @return md text string
 #' @export
 #' @author Guangchuang Yu
+#' @family pkg-utils
 mypkg <- function(pkg, url) {
     fmt <- "[%s](%s)"
     sprintf(fmt, pkgfmt(pkg), url)

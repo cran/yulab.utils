@@ -26,3 +26,11 @@ Invisible TRUE if valid, throws error otherwise
 \description{
 Validates directory existence and accessibility with options to create if missing
 }
+\seealso{
+Other validate-utils: 
+\code{\link{check_file}()},
+\code{\link{check_input}()},
+\code{\link{check_packages}()},
+\code{\link{check_range}()}
+}
+\concept{validate-utils}

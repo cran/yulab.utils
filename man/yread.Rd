@@ -32,6 +32,18 @@ read file with caching
 \details{
 This function read a file (local or url) and cache the content.
 }
+\seealso{
+Other io-utils: 
+\code{\link{o}()},
+\code{\link{read.cb}()},
+\code{\link{show_in_excel}()}
+
+Other io-utils: 
+\code{\link{o}()},
+\code{\link{read.cb}()},
+\code{\link{show_in_excel}()}
+}
 \author{
 Yonghe Xia and Guangchuang Yu
 }
+\concept{io-utils}

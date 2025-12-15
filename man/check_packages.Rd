@@ -2,9 +2,12 @@
 % Please edit documentation in R/error-utils.r
 \name{check_packages}
 \alias{check_packages}
+\alias{check_pkg}
 \title{Check if required packages are installed with informative errors}
 \usage{
 check_packages(packages, reason = "for this functionality")
+
+check_pkg(packages, reason = "for this functionality")
 }
 \arguments{
 \item{packages}{Character vector of package names}
@@ -17,3 +20,11 @@ Invisible TRUE if all packages are available, throws error otherwise
 \description{
 Enhanced package checking with better error messages and validation
 }
+\seealso{
+Other validate-utils: 
+\code{\link{check_directory}()},
+\code{\link{check_file}()},
+\code{\link{check_input}()},
+\code{\link{check_range}()}
+}
+\concept{validate-utils}

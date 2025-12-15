@@ -1,21 +1,22 @@
 Package: yulab.utils
 Title: Supporting Functions for Packages Maintained by 'YuLab-SMU'
-Version: 0.2.2
+Version: 0.2.3
 Authors@R: c(person("Guangchuang", "Yu", email = "guangchuangyu@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-6485-8781")))
 Description: Miscellaneous functions commonly used by 'YuLab-SMU'.
 Depends: R (>= 4.2.0)
-Imports: cli, digest, fs, rappdirs, rlang, tools, utils
-Suggests: httr2, jsonlite, openssl
+Imports: cli, digest, fs, methods, rappdirs, rlang, tools, utils
+Suggests: httr2, jsonlite, openssl, R.utils, testthat (>= 3.0.0)
 ByteCompile: true
 License: Artistic-2.0
 URL: https://yulab-smu.top/
 BugReports: https://github.com/YuLab-SMU/yulab.utils/issues
 Encoding: UTF-8
 RoxygenNote: 7.3.3
+Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2025-12-01 02:40:24 UTC; HUAWEI
+Packaged: 2025-12-15 06:46:29 UTC; HUAWEI
 Author: Guangchuang Yu [aut, cre] (ORCID:
     <https://orcid.org/0000-0002-6485-8781>)
 Maintainer: Guangchuang Yu <guangchuangyu@gmail.com>
 Repository: CRAN
-Date/Publication: 2025-12-01 06:10:02 UTC
+Date/Publication: 2025-12-15 07:10:02 UTC

@@ -19,3 +19,11 @@ Invisible TRUE if operation can proceed, throws error otherwise
 \description{
 Enhanced file validation with comprehensive checks and better error messages
 }
+\seealso{
+Other validate-utils: 
+\code{\link{check_directory}()},
+\code{\link{check_input}()},
+\code{\link{check_packages}()},
+\code{\link{check_range}()}
+}
+\concept{validate-utils}
