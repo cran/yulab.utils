@@ -1,3 +1,7 @@
+# yulab.utils 0.2.4
+
++ stabilize cache TTL unit test for r-devel checks (2026-02-02, Mon)
+
 # yulab.utils 0.2.3
 
 + `download_yulab_file` (2025-12-15, Mon)

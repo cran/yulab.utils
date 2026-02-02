@@ -1,6 +1,6 @@
-6665806e5e67b8883907b982e2fa84ca *DESCRIPTION
+07046c9877c8b865caa52c261dabe6a0 *DESCRIPTION
 3a9095bb4dc09e4123838743c3f3a9a8 *NAMESPACE
-68b23d2b5e6a695ab22a254690ef98c3 *NEWS.md
+f1e49eeb86ede053877de3135ec908fb *NEWS.md
 dea503b7e07e699c2bd4ba8d5d00bc1c *R/bib-ggtree.R
 d3c9d9b61886ad96130da98b77a825ca *R/bib-knownledge.R
 8c817a90acb8deb76024a36d5662c824 *R/biorxiv.R
@@ -73,6 +73,6 @@ f849c9b93ab305daea0fbb2084a830df *man/yulab-cache.Rd
 eedc7b6680597a4df3d869fe84f9ca5c *man/yulab.utils-package.Rd
 d4fd3e73765c9b7f9e2de1137d9a6dd1 *man/yulab_msg.Rd
 a4cc960ea1ca60075970eb7923df396c *tests/testthat.R
-58cc8b5d22358b7ce748c1735469e517 *tests/testthat/test-cache.R
+9acf2bc9f231a93b151790bde74911e8 *tests/testthat/test-cache.R
 6b9af5d566b8bf3d16330d4f4b4d7f5f *tests/testthat/test-error-utils.R
 772618f20ab0addf9310247e5a7dea35 *tests/testthat/test-utils.R
