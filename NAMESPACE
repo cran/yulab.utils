@@ -2,6 +2,7 @@
 
 S3method("[",chunked_array)
 S3method(as.vector,chunked_array)
+S3method(c,chunked_array)
 S3method(is.character,chunked_array)
 S3method(is.numeric,chunked_array)
 S3method(length,chunked_array)
@@ -10,6 +11,7 @@ S3method(print,exec)
 export(Biocpkg)
 export(CRANpkg)
 export(Githubpkg)
+export(as_chunked_array)
 export(auto_set_regexpr_style)
 export(c2)
 export(cache_list_items)
@@ -77,20 +79,24 @@ importFrom(digest,digest)
 importFrom(fs,path_join)
 importFrom(methods,is)
 importFrom(rappdirs,user_data_dir)
-importFrom(rlang,abort)
-importFrom(rlang,as_name)
-importFrom(rlang,check_installed)
-importFrom(rlang,enquo)
-importFrom(rlang,inform)
-importFrom(rlang,warn)
+importFrom(rlang,
+  abort,
+  as_name,
+  check_installed,
+  enquo,
+  inform,
+  warn
+)
 importFrom(stats,setNames)
 importFrom(tools,package_dependencies)
-importFrom(utils,bibentry)
-importFrom(utils,capture.output)
-importFrom(utils,combn)
-importFrom(utils,download.file)
-importFrom(utils,getFromNamespace)
-importFrom(utils,modifyList)
-importFrom(utils,packageDescription)
-importFrom(utils,read.delim)
-importFrom(utils,read.table)
+importFrom(utils,
+  bibentry,
+  capture.output,
+  combn,
+  download.file,
+  getFromNamespace,
+  modifyList,
+  packageDescription,
+  read.delim,
+  read.table
+)
