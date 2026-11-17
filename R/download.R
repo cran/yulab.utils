@@ -3,10 +3,35 @@ mydownload <- function(url, destfile) {
         req <- httr2::request(url) |> httr2::req_progress()
         req |> httr2::req_perform(path = destfile)
     } else {
-        download.file(url = url, destfile = destfile)
+        download.file(url = url, destfile = destfile, mode = 'wb')
     }
 }
 
+## decompress a gzip file with base R, so that R.utils is not required
+decompress_gz <- function(srcfile, destfile) {
+    con <- gzfile(srcfile, 'rb')
+    out <- file(destfile, 'wb')
+    complete <- FALSE
+
+    on.exit({
+        ## on Windows an open file cannot be removed, so close first
+        try(close(out), silent = TRUE)
+        try(close(con), silent = TRUE)
+        if (complete) {
+            unlink(srcfile)
+        } else {
+            ## a truncated file would be mistaken for a cached one
+            unlink(destfile)
+        }
+    }, add = TRUE)
+
+    while (length(chunk <- readBin(con, 'raw', 1e6L)) > 0) {
+        writeBin(chunk, out)
+    }
+    complete <- TRUE
+
+    invisible(destfile)
+}
 
 #' Process YuLab File Download
 #' 
@@ -54,25 +79,46 @@ download_yulab_file <- function(destfile, urls, gzfile = FALSE, appname = NULL) 
             urls <- unique(c(dl_url, urls))
         }
 
+        success <- FALSE
+        errors <- character()
+
         for (url in urls) {
             if (gzfile) {
                 furl <- sprintf('%s/%s.gz', url, file0)
                 tpfile <- sprintf("%s.gz", destfile)
             } else {
                 furl <- sprintf('%s/%s', url, file0)
-                tpfile <- destfile
+                tpfile <- sprintf("%s.part", destfile)
             }
-            
-            res <- tryCatch({
+
+            success <- tryCatch({
                 mydownload(furl, tpfile)
                 if (gzfile) {
-                    check_pkg('R.utils')
-                    R.utils::gunzip(tpfile, overwrite = TRUE)
+                    decompress_gz(tpfile, destfile)
+                } else {
+                    copied <- file.copy(tpfile, destfile, overwrite = TRUE)
+                    unlink(tpfile)
+                    if (!copied) {
+                        stop(sprintf("failed to move %s to %s", tpfile, destfile))
+                    }
                 }
                 TRUE
-            }, error = function(e) FALSE)
+            }, error = function(e) {
+                errors <<- c(errors, sprintf("%s (%s)", furl, conditionMessage(e)))
+                unlink(tpfile)
+                FALSE
+            })
 
-            if (res) break
+            if (success) break
+        }
+
+        if (!success) {
+            yulab_abort(
+                paste0("Failed to download '", file0, "' from ",
+                       paste(urls, collapse = ", "),
+                       ". Errors: ", paste(errors, collapse = "; ")),
+                class = "download_error"
+            )
         }
     }
     

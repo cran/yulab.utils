@@ -1,13 +1,13 @@
-3e183185317bbb9dcf2d8505088bff35 *DESCRIPTION
+b1e218fc5bf8292bb95d7e2b834373ce *DESCRIPTION
 c3f33ed8c43dca6b1bc1fa034a7ff715 *NAMESPACE
-722b71513a01f463b32e85d562016192 *NEWS.md
+3facf7afd20791dc63faba195bc24d8e *NEWS.md
 9febb2b2558d369a23b6bd67e725ae7a *R/bib-ggtree.R
 557ec2e2f33754fcc8377e3fa85ad3b3 *R/bib-knownledge.R
 682f42e3d30c889437c9bee3f20f36f9 *R/biorxiv.R
 e0ed961c14db9dc6839af312b5b7e8fd *R/cache.R
 71aa1184710c9b2d09bd451227e33365 *R/combinations.R
 be6406a27ca402a69705e81b2d9e176d *R/concat.r
-0c3200ca60b7e9979ee79ab1e7c4e9e1 *R/download.R
+cf0972b0a7e5871d842591924b3e97a0 *R/download.R
 6fbc0432743bfd37087c9f7341842e26 *R/error-utils.r
 48d8fe5bcd5d870463d096f9926df6bb *R/file.R
 7af077113bc1c076f319c48e017f3478 *R/install_zip.R
@@ -76,5 +76,6 @@ d4fd3e73765c9b7f9e2de1137d9a6dd1 *man/yulab_msg.Rd
 a4cc960ea1ca60075970eb7923df396c *tests/testthat.R
 9acf2bc9f231a93b151790bde74911e8 *tests/testthat/test-cache.R
 eafd7d9030d2bd8e43d97206aa4c475b *tests/testthat/test-concat.R
+c8f6b7f598bd9bd2056530d002bac17d *tests/testthat/test-download.R
 6b9af5d566b8bf3d16330d4f4b4d7f5f *tests/testthat/test-error-utils.R
 772618f20ab0addf9310247e5a7dea35 *tests/testthat/test-utils.R
